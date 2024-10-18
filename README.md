@@ -1,5 +1,5 @@
-#Welcome to My Project!#
-##Recipe App##
+#Welcome to My Project!
+##Recipe App
 ***
 
 *list item 1
