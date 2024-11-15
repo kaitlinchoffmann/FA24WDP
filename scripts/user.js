@@ -13,6 +13,10 @@ function register(e) {
     username: document.getElementById("username").value,
     password: document.getElementById("pswd").value
   }
+// this would be the fetch call to server...more later :)
+
+  let greeting = document.getElementById("greeting")
+  greeting.innerText = `Welcome ${user.username}!!!!`
 
   console.log(user)
 }
