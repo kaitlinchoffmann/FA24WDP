@@ -3,7 +3,7 @@
 // let fullName = document.getElementById("fullName").value
 
 let regForm = document.getElementById("regForm")
-regForm.addEventListener('submit', register)
+if(regForm) regForm.addEventListener('submit', register)
 
 function register(e) {
   e.preventDefault()
