@@ -1,3 +1,17 @@
+let loginForm = document.getElementById("loginForm")
+if(loginForm) loginForm.addEventListener('submit', login)
+
+function login(e) {
+  e.preventDefault()
+
+  const user = {
+    username: document.getElementById("username").value,
+    password: document.getElementById("pswd").value
+  }
+
+  console.log(user)
+}  
+
 // let username = document.getElementById("username").value
 // let password = document.getElementById("pswd").value
 // let fullName = document.getElementById("fullName").value
