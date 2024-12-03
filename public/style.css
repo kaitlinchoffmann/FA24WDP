@@ -7,6 +7,10 @@
   text-shadow: 5px 5px 5px hotpink;
 }
 
+.hide {
+  display: none;
+}
+
 .header nav {
   font-size: 30px;
 }

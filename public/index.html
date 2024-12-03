@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Example 1</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <form id="form1" style="border:1px solid black">
+    <h1>form 1</h1>
+    <p>example</p>
+    <input type="submit" value="submit">
+  </form>
+
+  <form class="hide" id="form2" style="border:1px solid hotpink">
+    <h1>form 2</h1>
+    <p>example</p>
+    <input type="submit" value="submit">
+  </form>
+
+  <button id="changeForm">Change form</button>
+
+
+  <script>
+    let changeForm=document.getElementById("changeForm")
+    if(changeForm) changeForm.addEventListener('click', switchForm)
+
+    function switchForm() {
+      document.getElementById("form1").classList.toggle("hide")
+      document.getElementById("form2").classList.toggle("hide")
+    }
+  </script>
+  <!-- <script src="main.js"></script> -->
+  <!-- <script src="./scripts/exercise1.js"></script> -->
+</body>
+</html>
