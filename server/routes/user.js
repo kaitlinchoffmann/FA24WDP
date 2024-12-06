@@ -6,8 +6,25 @@ router
 .get('/getUsers', async (req, res) => {
   try {
     const users = await User.getAllUsers()
-    console.log(users)
     res.send(users)
+  } catch(err) {
+    res.status(401).send({message: err.message})
+  }
+})
+
+.post('/login', async (req, res) => {
+  try {
+    let user = await User.login(req.body)
+    res.send({...user, Password: undefined})
+  } catch(err) {
+    res.status(401).send({message: err.message})
+  }
+})
+
+.post('/register', async(req, res) => {
+  try {
+    let user = await User.register(req.body)
+    res.send({...user, Password: undefined})
   } catch(err) {
     res.status(401).send({message: err.message})
   }
