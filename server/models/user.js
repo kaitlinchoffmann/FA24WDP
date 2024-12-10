@@ -52,6 +52,28 @@ async function register(user) {
   return newUser //issue fixed from class: removed [0] since login function returns this already
 }
 
+//U for Update - Update email of user
+async function updateEmail(user) {
+  let cEmail = await getEmail(user)
+  if(cEmail) throw Error("Email already in use!!")
+
+  let sql = `
+    UPDATE User SET Email="${user.Email}"
+    WHERE Username="${user.Username}"
+  `
+  await con.query(sql)
+  let updatedUser = await userExists(user)
+  return updatedUser[0]
+}
+
+async function getEmail(user) {
+  let sql = `
+    SELECT Email FROM User
+    WHERE Email="${user.Email}"
+  `
+  let email = await con.query(sql)
+  return email[0]
+}
 
 // CRUD functions will go here 
 //R for READ -- get all users
@@ -60,4 +82,4 @@ async function getAllUsers() {
   return await con.query(sql)
 }
 
-module.exports ={ getAllUsers, login, register }
+module.exports ={ getAllUsers, login, register, updateEmail }

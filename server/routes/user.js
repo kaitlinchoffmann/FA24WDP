@@ -30,4 +30,13 @@ router
   }
 })
 
+.put('/update', async(req, res) => {
+  try {
+    let user = await User.updateEmail(req.body)
+    res.send({...user, Password: undefined})
+  } catch(err) {
+    res.status(401).send({message: err.message})
+  }
+})
+
 module.exports = router
