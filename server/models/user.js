@@ -48,8 +48,8 @@ async function register(user) {
     VALUES("${user.Username}", "${user.Password}", "${user.Email}")
   `  
   await con.query(sql)
-  let newUser = await login(cUser)
-  return newUser[0]
+  let newUser = await login(user)
+  return newUser //issue fixed from class: removed [0] since login function returns this already
 }
 
 
