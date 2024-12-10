@@ -75,6 +75,15 @@ async function getEmail(user) {
   return email[0]
 }
 
+//D for Delete - delete user account
+async function deleteAccount(user) {
+  let sql = `
+    DELETE from User
+    WHERE Username="${user.Username}"
+  `
+  await con.query(sql)
+}
+
 // CRUD functions will go here 
 //R for READ -- get all users
 async function getAllUsers() {
@@ -82,4 +91,4 @@ async function getAllUsers() {
   return await con.query(sql)
 }
 
-module.exports ={ getAllUsers, login, register, updateEmail }
+module.exports ={ getAllUsers, login, register, updateEmail, deleteAccount }
